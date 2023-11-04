@@ -6,7 +6,8 @@ This is proof of work for [geektrust](https://www.geektrust.com/coding/detailed/
 
 [Admin-UI](https://geektrust-admin-ui-asssignment.netlify.app/)
 
-![image](https://github.com/Krushna-Kulkarni/geektrust_admin_ui/assets/62604823/e06c0580-5da6-486b-b939-f32fed23027c)
+![image](https://github.com/Krushna-Kulkarni/geektrust_admin_ui/assets/62604823/e339701b-409e-45e5-aece-16866b229bd5)
+
 
 
 
