@@ -27,6 +27,6 @@ for Testing
 $ npm run test
 
 for code coverage
-$ jest --coverage
+$ npx jest --coverage
 
 ```
