@@ -6,6 +6,9 @@ This is proof of work for [geektrust](https://www.geektrust.com/coding/detailed/
 
 [Admin-UI](https://geektrust-admin-ui-asssignment.netlify.app/)
 
+![image](https://github.com/Krushna-Kulkarni/geektrust_admin_ui/assets/62604823/13a0bf62-a14b-41aa-a056-b5257e2e2261)
+
+
 ## **Install and Run Locally**
 
 ```
