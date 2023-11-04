@@ -147,15 +147,19 @@ describe("TableRow Component", () => {
     const setShouldShowEditModal = jest.fn();
 
     render(
-      <TableRow
-        user={user}
-        shouldShowEditModal={shouldShowEditModal}
-        selectedRows={selectedRows}
-        handleRowSelect={handleRowSelect}
-        handleDeleteRow={handleDeleteRow}
-        handleUpdateRowModal={handleUpdateRowModal}
-        setShouldShowEditModal={setShouldShowEditModal}
-      />
+      <table>
+        <tbody>
+          <TableRow
+            user={user}
+            shouldShowEditModal={shouldShowEditModal}
+            selectedRows={selectedRows}
+            handleRowSelect={handleRowSelect}
+            handleDeleteRow={handleDeleteRow}
+            handleUpdateRowModal={handleUpdateRowModal}
+            setShouldShowEditModal={setShouldShowEditModal}
+          />
+        </tbody>
+      </table>
     );
   });
 });
@@ -478,15 +482,19 @@ describe("Selection and Delete Behavior", () => {
       role: "Admin",
     };
     const { getByTestId } = render(
-      <TableRow
-        user={user}
-        selectedRows={[]}
-        handleRowSelect={() => {}}
-        handleDeleteRow={handleDeleteRow}
-        shouldShowEditModal={{ isModalOpen: false, user: {} }}
-        setShouldShowEditModal={() => {}}
-        handleUpdateRowModal={() => {}}
-      />
+      <table>
+        <tbody>
+          <TableRow
+            user={user}
+            selectedRows={[]}
+            handleRowSelect={() => {}}
+            handleDeleteRow={handleDeleteRow}
+            shouldShowEditModal={{ isModalOpen: false, user: {} }}
+            setShouldShowEditModal={() => {}}
+            handleUpdateRowModal={() => {}}
+          />
+        </tbody>
+      </table>
     );
     const deleteButton = getByTestId("delete-row-button");
     fireEvent.click(deleteButton);
