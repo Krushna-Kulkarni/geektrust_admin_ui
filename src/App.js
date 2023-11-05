@@ -7,6 +7,8 @@ import SearchBar from "./components/searchBar/SearchBar";
 import Pagination from "./components/pagination/Pagination";
 import Alert from "./components/alert/Alert";
 import filterData from "./utils/dataUtils";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [usersData, setUsersData] = useState([]);
@@ -103,67 +105,54 @@ function App() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <>
-      <div className="main-container">
-        <div className="header">
-          <p className="header-heading">Admin UI</p>
-        </div>
-        <SearchBar
-          searchQuery={searchQuery}
-          handleSearchQuery={handleSearchQuery}
-        />
+    <div className="main-container">
+      <Header />
+      <SearchBar
+        searchQuery={searchQuery}
+        handleSearchQuery={handleSearchQuery}
+      />
 
-        {loading || error ? (
-          loading ? (
-            <Alert alertType={"loading"} alertMessage={"Loading..."} />
-          ) : (
-            <Alert alertType={"error"} alertMessage={error.message} />
-          )
+      {loading || error ? (
+        loading ? (
+          <Alert alertType={"loading"} alertMessage={"Loading..."} />
         ) : (
-          <AdminTable
-            handleUpdateRowModal={handleUpdateRowModal}
-            setShouldShowEditModal={setShouldShowEditModal}
-            shouldShowEditModal={shouldShowEditModal}
-            filteredData={filteredData}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-            rowsPerPage={rowsPerPage}
-            selectedRows={selectedRows}
-            handleRowSelect={handleRowSelect}
-            handleDeleteRow={handleDeleteRow}
-            handleAllRowsSelect={handleAllRowsSelect}
-          />
-        )}
-
-        <div className="delete-selected-action-container">
-          <DeleteSelectedButton
-            handleDeleteSelected={handleDeleteSelected}
-            selectedRows={selectedRows}
-          />
-          <div>
-            <p className="selected-rows-count-text">
-              {selectedRows.length} rows selected
-            </p>
-          </div>
-        </div>
-        <Pagination
-          rowsPerPage={rowsPerPage}
-          totalRows={filteredData.length}
-          paginate={paginate}
+          <Alert alertType={"error"} alertMessage={error.message} />
+        )
+      ) : (
+        <AdminTable
+          handleUpdateRowModal={handleUpdateRowModal}
+          setShouldShowEditModal={setShouldShowEditModal}
+          shouldShowEditModal={shouldShowEditModal}
+          filteredData={filteredData}
+          setCurrentPage={setCurrentPage}
           currentPage={currentPage}
+          rowsPerPage={rowsPerPage}
+          selectedRows={selectedRows}
+          handleRowSelect={handleRowSelect}
+          handleDeleteRow={handleDeleteRow}
+          handleAllRowsSelect={handleAllRowsSelect}
         />
-        {/* </div> */}
-        <div className="footer">
-          <p className="footer-text">
-            Coding Problem :{" "}
-            <a href="https://www.geektrust.com/coding/detailed/admin-ui">
-              geektrust admin-ui
-            </a>
+      )}
+
+      <div className="delete-selected-action-container">
+        <DeleteSelectedButton
+          handleDeleteSelected={handleDeleteSelected}
+          selectedRows={selectedRows}
+        />
+        <div>
+          <p className="selected-rows-count-text">
+            {selectedRows.length} rows selected
           </p>
         </div>
       </div>
-    </>
-    // </div>
+      <Pagination
+        rowsPerPage={rowsPerPage}
+        totalRows={filteredData.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
+      <Footer />
+    </div>
   );
 }
 
