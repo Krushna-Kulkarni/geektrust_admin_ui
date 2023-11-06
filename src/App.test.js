@@ -97,34 +97,6 @@ describe("AdminTable Component", () => {
   test("Renders AdminTable without crashing", () => {
     render(<AdminTable />);
   });
-
-  test("Validate page change on clicking next page", () => {
-    const paginate = jest.fn();
-    const rowsPerPage = 10;
-    const totalRows = 50;
-    const currentPage = 1;
-
-    render(
-      <Pagination
-        rowsPerPage={rowsPerPage}
-        totalRows={totalRows}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
-    );
-
-    // Find the "Next Page" button
-    const nextPageButton = screen.getByText(">");
-
-    // Simulate clicking the "Next Page" button
-    fireEvent.click(nextPageButton);
-
-    // Validate if the paginate function is called
-    expect(paginate).toHaveBeenCalled();
-
-    // Validate if the paginate function is called with the next page number
-    expect(paginate).toHaveBeenCalledWith(currentPage + 1);
-  });
 });
 
 // Tests for TableRow component
@@ -262,7 +234,7 @@ describe("Pagination Component", () => {
     expect(currentPage).toBe(5); // Ensure the current page is updated to the next page
   });
 
-  test("Validate page change on clicking <", () => {
+  test('Validate page change on clicking "<"', () => {
     let currentPage = 4; // Set the initial current page to 4 for testing purposes
     const paginate = jest.fn((newPage) => {
       currentPage = newPage;

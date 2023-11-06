@@ -24,23 +24,24 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  //fetching usersData
+  //function for fetching users Data
+  const fetchUsersData = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
+      );
+      const data = await response.json();
+      setLoading(false);
+      setUsersData(data);
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  };
+
+  // Invoking function for fetching users Data on intial page load
   useEffect(() => {
-    const fetchUsersData = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
-        );
-        const data = await response.json();
-        setLoading(false);
-        setUsersData(data);
-      } catch (error) {
-        setLoading(false);
-        setError(error);
-        // console.log("Error fetching data:", error.message);
-      }
-    };
     fetchUsersData();
   }, []);
 
